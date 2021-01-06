@@ -3,15 +3,14 @@
 </template>
 
 <script>
+import log from "../mixins/log";
 export default {
   data() {
     return {
       name: "Child5",
     };
   },
-  created() {
-    console.log(`${this.name}出生了`);
-  },
+  mixins: [log],
 };
 </script>
 
