@@ -1,5 +1,5 @@
 <template>
-  <div :class="`app theme-${themeName} theme-${fontSize}`">
+  <div v-y.prevent :class="`app theme-${themeName} theme-${fontSize}`">
     <Child1 v-if="childVisbale" />
     <button @click="x">x</button>
     <Child2 />
@@ -21,6 +21,15 @@ import Child4 from "./components/Child4";
 import Child5 from "./components/Child5";
 export default {
   name: "App",
+  directives: {
+    y: {
+      inserted: function (el) {
+        el.addEventListener("click", () => {
+          console.log("y");
+        });
+      },
+    },
+  },
   provide() {
     return {
       themeName: this.themeName,
